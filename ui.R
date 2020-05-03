@@ -9,7 +9,7 @@
 
 library(shiny)
 library(DT)
-library(shinyalert)
+#library(shinyalert)
 options(shiny.sanitize.errors = FALSE)
 
 # Define UI for application that draws a histogram
