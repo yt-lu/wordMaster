@@ -28,54 +28,11 @@ shinyUI(fluidPage(
                                "Submit words for a new game." = 'pregame'),
                    selected = 'player'),
       
-      conditionalPanel(
-        condition = "input.role == 'master'",
-        
-        textInput("who", "Reveal the identity of the word:", ""),
-        useShinyalert(),
-        actionButton("reveal", "Go/Reveal"), 
-        actionButton("newgame", "New Game")
-      ),
-      
-      conditionalPanel(
-        condition = "input.role == 'player'",
-        
-        actionButton("update", "Refresh the Game")
-      ),
-      
-      conditionalPanel(
-        condition = "input.role == 'pregame'",
-
-        textInput("word", HTML("Word Submission Box<br>(One word a time please)"), ""),
-        useShinyalert(),
-        actionButton("submit", "Submit")
-        #actionButton("view", "View Game")
-      )
-    ),
-  
+     
     
     # Show a plot of the generated distribution
     mainPanel(
-        conditionalPanel(
-          condition = "input.role == 'player'",
-          
-          htmlOutput("infoToPlayer"),
-          DT::dataTableOutput("GameTablePlayerCopy")
-        ),#end of conditionalPanal
-        conditionalPanel(
-          condition = "input.role == 'master'",
-          
-          tabsetPanel(id = 'Home',
-            tabPanel("Security Window", 
-                   htmlOutput("infoToSecurityWindow")
-            ),#end of tabPanel
-            tabPanel("Master Window",
-                     DT::dataTableOutput("GameTableMaster"),
-                     DT::dataTableOutput("GameTablePlayer")
-            )#end of tabPanel
-        )#end of nvabarPage
-        )#end of conditionalPanal
-       
+        
     )#end of mainPanel
 )#end of sidebar layout
 )#end of fluidpage
