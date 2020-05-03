@@ -10,6 +10,7 @@
 library(shiny)
 library(shinyalert)
 library(DT)
+options(shiny.sanitize.errors = FALSE)
 
 shinyServer(function(input, output, session) {
   teamzero <- '#FBDE445F' #Yellow
